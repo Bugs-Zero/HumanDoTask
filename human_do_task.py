@@ -48,24 +48,6 @@ def _query(
     )
 
 
-class ManualSection:
-    def __init__(self, go: Process) -> None:
-        self.go = go
-
-    def __enter__(self) -> None:
-        self.go._automated.stop()
-        self.go._manual.start()
-
-    def __exit__(
-        self,
-        exception_type: typing.Optional[type[BaseException]],
-        exception: typing.Optional[BaseException],
-        exception_traceback: typing.Optional[traceback.TracebackException],
-    ) -> None:
-        self.go._manual.stop()
-        self.go._automated.start()
-
-
 class Process:
     def __init__(self) -> None:
         self._automated = Clock()
@@ -75,13 +57,30 @@ class Process:
         self._automated_steps = 0
         self._manual_steps = 0
 
+    class ManualSection:
+        def __init__(self, go: Process) -> None:
+            self.go = go
+
+        def __enter__(self) -> None:
+            self.go._automated.stop()
+            self.go._manual.start()
+
+        def __exit__(
+            self,
+            exception_type: typing.Optional[type[BaseException]],
+            exception: typing.Optional[BaseException],
+            exception_traceback: typing.Optional[traceback.TracebackException],
+        ) -> None:
+            self.go._manual.stop()
+            self.go._automated.start()
+
     @staticmethod
     def run(
         perform: typing.Callable[[Process], None],
         verify: typing.Callable[[Process], None],
     ) -> None:
         go = Process()
-        with ManualSection(go):
+        with Process.ManualSection(go):
             do_perform = _query(
                 [], "Do you wish to perform the process or verify it?", "P", "V"
             )
@@ -97,20 +96,20 @@ class Process:
 
     def tell(self, message: str) -> None:
         self._manual_steps += 1
-        with ManualSection(self):
+        with Process.ManualSection(self):
             print(message)
             input("press enter when done")
 
     def ask(self, condition: str, operation: typing.Callable[[], None]) -> None:
         self._manual_steps += 1
-        with ManualSection(self):
+        with Process.ManualSection(self):
             should_do_it = _query([condition], "Should I perform this step?", "Y", "N")
         if should_do_it:
             operation()
 
     def ask_yes_no(self, condition: str) -> bool:
         self._manual_steps += 1
-        with ManualSection(self):
+        with Process.ManualSection(self):
             return _query([condition], "Should I perform this step?", "Y", "N")
 
     # Conflicts with built-in keyword `if`. TODO: pick a non-conflicting name.
@@ -129,7 +128,7 @@ class Process:
     def that(self, condition: str) -> typing.Callable[[], bool]:
         def impl() -> bool:
             self._manual_steps += 1
-            with ManualSection(self):
+            with Process.ManualSection(self):
                 return _query(
                     [f"Please verify whether {condition}."], "Is this right?", "Y", "N"
                 )
