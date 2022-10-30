@@ -9,8 +9,8 @@
 <a id='snippet-example_usage'></a>
 ```py
 def perform(go):
-    go.tell("Please do such and such.")
-    go.tell("Please do something else for me.")
+    go.tell("Please lorem.")
+    go.tell("Please ipsum")
     go.ask(
         "Are the lights on?", lambda: go.tell("Please turn off the circuit breaker.")
     )
