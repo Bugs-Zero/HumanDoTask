@@ -1,7 +1,7 @@
 from human_do_task import Process
 
 # begin-snippet: example_usage
-def perform(go):
+def perform(go: Process) -> None:
     go.tell("Please lorem.")
     go.tell("Please ipsum.")
     go.ask(
@@ -10,7 +10,7 @@ def perform(go):
     go.tell("Please do one more thing.")
 
 
-def verify(go):
+def verify(go: Process) -> None:
     go.tell("Please do something.")
     go.verify(go.that("the thing is colored blue"))
     go.print_test_result()
