@@ -1,6 +1,8 @@
 
 [![Test](../../actions/workflows/test.yml/badge.svg)](../../actions/workflows/test.yml)
 
+`Human! Do Task!` is a library for "half-assed" automation, created by Arlo Belshee and his company [Deep Roots](https://www.digdeeproots.com/). To learn more, see https://www.youtube.com/watch?v=ydq-KjGDRJg.
+
 # Example usage
 
 <!-- snippet: example_usage -->
