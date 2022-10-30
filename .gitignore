@@ -1,5 +1,5 @@
 # Ignoring recieved files
-.recieved.*
+*.received.*
 
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
 
@@ -11,7 +11,7 @@
 ## File-based project format:
 *.ipr
 *.iws
-.tox/
+/.tox/
 
 ## Plugin-specific files:
 
