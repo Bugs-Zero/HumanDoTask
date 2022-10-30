@@ -13,7 +13,7 @@ def perform(go: Process) -> None:
 def verify(go: Process) -> None:
     go.tell("Please do something.")
     go.verify(go.that("the thing is colored blue"))
-    go.print_test_result()
+    go.print_test_results()
     # end-snippet
 
 
