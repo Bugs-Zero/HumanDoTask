@@ -125,12 +125,15 @@ class Process:
         if initial == self._manual_steps:
             self._automated_steps += 1
 
-    def that(self, condition: str) -> typing.Callable[[], bool]:
+    def that(self, condition_message: str) -> typing.Callable[[], bool]:
         def impl() -> bool:
             self._manual_steps += 1
             with Process.ManualSection(self):
                 return _query(
-                    [f"Please verify whether {condition}."], "Is this right?", "Y", "N"
+                    [f"Please verify whether {condition_message}."],
+                    "Is this right?",
+                    "Y",
+                    "N",
                 )
 
         return impl
