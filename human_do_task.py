@@ -33,6 +33,17 @@ def _query(self, prefix, question, first_answer, second_answer):
       print(item)
    return input("{question} ({first_answer}/{second_answer})").to_lower().starts_with(first_answer.to_lower())
 
+class ManualSection:
+    def __init__(self, go):
+        self.go = go
+    def __enter__(self):
+        self.go._automated.stop()
+        self.go._manual.start()
+    def __exit__(self):
+        self.go._manual.stop()
+        self.go._automated.start()
+
+
 class Process:
    def __init__(self):
       self._automated = Clock()
@@ -41,16 +52,6 @@ class Process:
       self._test_result = []
       self._automated_steps = 0
       self._manual_steps = 0
-
-   class ManualSection:
-      def __init__(self, go):
-         self.go = go
-      def __enter__(self):
-         self.go._automated.stop()
-         self.go._manual.start()
-      def __exit__(self):
-         self.go._manual.stop()
-         self.go._automated.start()
 
    @classmethod
    def run(perform, verify):
@@ -83,12 +84,13 @@ class Process:
    def ask_yes_no(self, condition):
       self._manual_steps += 1
       with ManualSection(self):
-         return = _query([condition], "Should I perform this step?", "Y", "N")
+         return _query([condition], "Should I perform this step?", "Y", "N")
 
-   def if(self, condition, operation):
-      self._automatic_steps += 1
-      if(condition()):
-         operation()
+# Conflicts with built-in keyword `if`. TODO: pick a non-conflicting name.
+#    def if(self, condition, operation):
+#       self._automatic_steps += 1
+#       if(condition()):
+#          operation()
 
    def verify(self, condition):
       initial = self._manual_steps
@@ -105,12 +107,12 @@ class Process:
             return _query(
                [f"Please verify whether {condition}."],
                "Is this right?",
-               "Y", "N"))
+               "Y", "N")
       return impl
 
    def print_test_results(self):
       if(self._test_result):
-      print("Verification failed. Please fix the process and try again.")
+        print("Verification failed. Please fix the process and try again.")
       for failure in self._test_result:
          print(failure)
 
