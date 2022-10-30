@@ -36,14 +36,17 @@ class Clock(object):
         )
 
 
-def _query(prefix: list[str], question: str, first_answer: str, second_answer: str) -> bool:
+def _query(
+    prefix: list[str], question: str, first_answer: str, second_answer: str
+) -> bool:
     for item in prefix:
         print(item)
     return (
-        input("{question} ({first_answer}/{second_answer})")
+        input(f"{question} ({first_answer}/{second_answer})")
         .lower()
         .startswith(first_answer.lower())
     )
+
 
 class ManualSection:
     def __init__(self, go: Process) -> None:
@@ -53,7 +56,12 @@ class ManualSection:
         self.go._automated.stop()
         self.go._manual.start()
 
-    def __exit__(self, exception_type: typing.Optional[type[BaseException]], exception: typing.Optional[BaseException], exception_traceback: typing.Optional[traceback.TracebackException]) -> None:
+    def __exit__(
+        self,
+        exception_type: typing.Optional[type[BaseException]],
+        exception: typing.Optional[BaseException],
+        exception_traceback: typing.Optional[traceback.TracebackException],
+    ) -> None:
         self.go._manual.stop()
         self.go._automated.start()
 
@@ -68,7 +76,10 @@ class Process:
         self._manual_steps = 0
 
     @staticmethod
-    def run(perform: typing.Callable[[Process], None], verify: typing.Callable[[Process], None]) -> None:
+    def run(
+        perform: typing.Callable[[Process], None],
+        verify: typing.Callable[[Process], None],
+    ) -> None:
         go = Process()
         with ManualSection(go):
             do_perform = _query(
