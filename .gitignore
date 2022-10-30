@@ -39,3 +39,6 @@ staticfiles
 .env
 *.egg
 *.egg-info
+.mypy_cache/
+.pytest_cache/
+__pycache__/
