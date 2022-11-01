@@ -42,11 +42,8 @@ def _query(
     for item in prefix:
         print(item)
     response = input(f"{question} ({first_answer}/{second_answer}): ")
-    return (
-        response
-        .lower()
-        .startswith(first_answer.lower())
-    )
+    print()
+    return response.lower().startswith(first_answer.lower())
 
 
 class Process:
@@ -100,6 +97,7 @@ class Process:
         with Process.ManualSection(self):
             print(message)
             input("Press [ENTER] when done. ")
+            print()
 
     def ask(self, condition: str, operation: typing.Callable[[], None]) -> None:
         self._manual_steps += 1

@@ -1,5 +1,8 @@
+
 Please do something.
+
 Please verify whether the thing is colored blue.
+
 Process complete in {REMOVED}.
    Automated: 0 steps in {REMOVED}.
    Manual: 2 steps in {REMOVED}.
