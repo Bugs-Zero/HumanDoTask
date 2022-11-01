@@ -1,9 +1,15 @@
 
 [![Test](../../actions/workflows/test.yml/badge.svg)](../../actions/workflows/test.yml)
 
-`Human! Do Task!` is a library for "half-assed" automation, created by Arlo Belshee of [Deep Roots](https://www.digdeeproots.com/). To learn more, see https://www.youtube.com/watch?v=ydq-KjGDRJg.
+`Human! Do Task!` is a library for "half-assed" automation, created by Arlo Belshee of [Deep Roots](https://www.digdeeproots.com/).
 
-# Example usage
+# How to use it
+
+Watch this video: https://www.youtube.com/watch?v=ydq-KjGDRJg.
+
+Take this class: https://www.eventbrite.com/e/automation-as-a-process-4-wk-public-class-registration-444094617957
+
+# Example
 
 <!-- snippet: example_usage -->
 <a id='snippet-example_usage'></a>
