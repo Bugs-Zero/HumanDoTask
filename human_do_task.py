@@ -41,8 +41,9 @@ def _query(
 ) -> bool:
     for item in prefix:
         print(item)
+    response = input(f"{question} ({first_answer}/{second_answer}): ")
     return (
-        input(f"{question} ({first_answer}/{second_answer}): ")
+        response
         .lower()
         .startswith(first_answer.lower())
     )
