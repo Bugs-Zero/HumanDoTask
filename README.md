@@ -5,9 +5,11 @@
 
 # How to use it
 
-Watch this video: https://www.youtube.com/watch?v=ydq-KjGDRJg.
+1. Watch this video: https://www.youtube.com/watch?v=ydq-KjGDRJg.
 
-Take this class: https://www.eventbrite.com/e/automation-as-a-process-4-wk-public-class-registration-444094617957
+2. Take this class: https://www.eventbrite.com/e/automation-as-a-process-4-wk-public-class-registration-444094617957
+
+3. Copy `human_do_task.py` into your repo and start writing half-assed automation.
 
 # Example
 
