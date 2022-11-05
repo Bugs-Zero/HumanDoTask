@@ -86,6 +86,7 @@ class Process:
             perform(go)
         else:
             verify(go)
+            go.print_test_results()
         go._print_stats()
 
     def do(self, operation: typing.Callable[[], None]) -> None:
