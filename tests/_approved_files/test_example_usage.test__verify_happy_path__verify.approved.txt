@@ -1,8 +1,8 @@
-
+Do you wish to perform the process or verify it? (P/V): 
 Please do something.
-
+Press [ENTER] when done. 
 Please verify whether the thing is colored blue.
-
+Is this right? (Y/N): 
 Process complete in {REMOVED}.
    Automated: 0 steps in {REMOVED}.
    Manual: 2 steps in {REMOVED}.

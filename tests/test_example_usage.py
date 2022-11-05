@@ -52,9 +52,17 @@ def test__verify_happy_path__run() -> None:
 
 
 def test__verify_happy_path__verify() -> None:
-    with contextlib.redirect_stdout(io.StringIO()) as stdout:
-        with unittest.mock.patch("builtins.input", side_effect=["V", "", "Y"]):
-            human_do_task.Process.run(example_usage.perform, example_usage.verify)
+    with capture_io(
+        textwrap.dedent(
+            """\
+        V
+
+        Y
+
+        """
+        )
+    ) as stdout:
+        human_do_task.Process.run(example_usage.perform, example_usage.verify)
 
     approvaltests.approvals.verify(
         stdout.getvalue(),
