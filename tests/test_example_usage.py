@@ -35,11 +35,11 @@ def test__verify_happy_path__run() -> None:
         textwrap.dedent(
             """\
             P
-            
-            
+
+
             N
-            
-            
+
+
             """
         )
     ) as stdout:
