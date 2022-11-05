@@ -1,5 +1,6 @@
 import re
 import textwrap
+import traceback
 import typing
 import approvaltests
 import approvaltests.approvals
@@ -16,27 +17,33 @@ def _scrub_timestamp(s: str) -> str:
     return re.sub(r"\d+:\d+:\d+(\.\d+)?", "{REMOVED}", s)
 
 
-class redirect_stdin(contextlib._RedirectStream[typing.IO[str]]):
+class redirect_stdin(contextlib._RedirectStream[io.StringIO]):
     _stream = "stdin"
 
 
-def test__verify_happy_path__run() -> None:
+@contextlib.contextmanager
+def capture_io(
+    input: str,
+) -> typing.Generator[io.StringIO, None, None]:
     with contextlib.redirect_stdout(io.StringIO()) as stdout:
-        with redirect_stdin(
-            io.StringIO(
-                textwrap.dedent(
-                    """\
-                    P
-                    
-                    
-                    N
-                    
-                    
-                    """
-                )
-            )
-        ):
-            human_do_task.Process.run(example_usage.perform, example_usage.verify)
+        with redirect_stdin(io.StringIO(input)):
+            yield stdout
+
+
+def test__verify_happy_path__run() -> None:
+    with capture_io(
+        textwrap.dedent(
+            """\
+            P
+            
+            
+            N
+            
+            
+            """
+        )
+    ) as stdout:
+        human_do_task.Process.run(example_usage.perform, example_usage.verify)
 
     approvaltests.approvals.verify(
         stdout.getvalue(),
