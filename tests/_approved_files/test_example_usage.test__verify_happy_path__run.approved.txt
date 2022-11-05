@@ -1,0 +1,12 @@
+
+Please lorem.
+
+Please ipsum.
+
+Are the lights on?
+
+Please do one more thing.
+
+Process complete in {REMOVED}.
+   Automated: 0 steps in {REMOVED}.
+   Manual: 4 steps in {REMOVED}.
