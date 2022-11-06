@@ -9,7 +9,7 @@
 
 2. Take this class: https://www.eventbrite.com/e/automation-as-a-process-4-wk-public-class-registration-444094617957
 
-3. Copy `human_do_task.py` into your repo and start writing half-assed automation.
+3. Copy `human_do_task.py` into your repo and start writing half-assed automation. Feel free to modify your copy to meet your local needs.
 
 # Example
 
@@ -30,3 +30,7 @@ def verify(go: Process) -> None:
 ```
 <sup><a href='/example_usage.py#L3-L16' title='Snippet source file'>snippet source</a> | <a href='#snippet-example_usage' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
+
+# Versioning
+
+This library makes no attempt to maintain compatibility across versions. I assume you will take a copy, use it, and never come back.
