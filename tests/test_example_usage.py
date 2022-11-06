@@ -1,14 +1,11 @@
 import re
 import textwrap
-import traceback
 import typing
 import approvaltests
 import approvaltests.approvals
 import contextlib
 import io
 import sys
-import unittest
-import unittest.mock
 
 import example_usage
 import human_do_task
