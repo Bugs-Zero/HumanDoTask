@@ -6,6 +6,7 @@ import approvaltests
 import approvaltests.approvals
 import contextlib
 import io
+import sys
 import unittest
 import unittest.mock
 
@@ -17,7 +18,14 @@ def _scrub_timestamp(s: str) -> str:
     return re.sub(r"\d+:\d+:\d+(\.\d+)?", "{REMOVED}", s)
 
 
-class redirect_stdin(contextlib._RedirectStream[io.StringIO]):
+# Older Python doesn't handle the generic type parameter
+if sys.version_info >= (3, 10) or typing.TYPE_CHECKING:
+    _RedirectStream = contextlib._RedirectStream[io.StringIO]
+else:
+    _RedirectStream = contextlib._RedirectStream
+
+
+class redirect_stdin(_RedirectStream):
     _stream = "stdin"
 
 
