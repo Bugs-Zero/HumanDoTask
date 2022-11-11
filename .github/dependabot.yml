@@ -6,15 +6,25 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    commit-message:
+      prefix: "R!!"
+      include: "scope"
 
 - package-ecosystem: nuget
   directory: "/"
   schedule:
     interval: daily
   open-pull-requests-limit: 10
+  commit-message:
+    prefix: "R!!"
+    include: "scope"
 
 - package-ecosystem: github-actions
   directory: "/"
   schedule:
     interval: daily
   open-pull-requests-limit: 10
+  commit-message:
+    prefix: "R!!"
+    include: "scope"
+
