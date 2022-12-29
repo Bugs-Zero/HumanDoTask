@@ -8,7 +8,6 @@ updates:
     interval: "daily"
   commit-message:
     prefix: "R!!"
-    include: "scope"
 
 - package-ecosystem: nuget
   directory: "/"
@@ -17,7 +16,6 @@ updates:
   open-pull-requests-limit: 10
   commit-message:
     prefix: "R!!"
-    include: "scope"
 
 - package-ecosystem: github-actions
   directory: "/"
@@ -26,5 +24,3 @@ updates:
   open-pull-requests-limit: 10
   commit-message:
     prefix: "R!!"
-    include: "scope"
-
