@@ -1,1 +1,1 @@
-@python -m pip install tox --quiet --constraint constraints.txt  --disable-pip-version-check && tox --quiet --parallel
+@python -m pip install tox --constraint constraints.txt  --disable-pip-version-check && tox --parallel
