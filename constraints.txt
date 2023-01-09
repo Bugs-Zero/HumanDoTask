@@ -11,7 +11,7 @@ colorama==0.4.6
 empty-files==0.0.3
 exceptiongroup==1.1.0
 idna==3.4
-iniconfig==1.1.1
+iniconfig==2.0.0
 mrjob==0.7.4
 mypy==0.991
 mypy-extensions==0.4.3
