@@ -1,5 +1,6 @@
 from human_do_task import Process
 
+
 # begin-snippet: example_usage
 def perform(go: Process) -> None:
     go.tell("Please lorem.")
