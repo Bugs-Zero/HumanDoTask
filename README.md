@@ -28,7 +28,7 @@ def verify(go: Process) -> None:
     go.tell("Please do something.")
     go.verify(go.that("the thing is colored blue"))
 ```
-<sup><a href='/example_usage.py#L3-L16' title='Snippet source file'>snippet source</a> | <a href='#snippet-example_usage' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/example_usage.py#L4-L17' title='Snippet source file'>snippet source</a> | <a href='#snippet-example_usage' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 # Versioning
