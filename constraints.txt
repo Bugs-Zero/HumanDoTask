@@ -25,7 +25,7 @@ pytest==7.3.1
 PyYAML==6.0
 requests==2.28.2
 six==1.16.0
-soupsieve==2.4
+soupsieve==2.4.1
 tomli==2.0.1
 tox==4.4.12
 typed-ast==1.5.4
