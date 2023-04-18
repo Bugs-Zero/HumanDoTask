@@ -1,7 +1,7 @@
 allpairspy==2.5.0
 approval-utilities==8.2.5
 approvaltests==8.2.5
-attrs==22.2.0
+attrs==23.1.0
 beautifulsoup4==4.12.2
 black==23.3.0
 certifi==2022.12.7
