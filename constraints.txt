@@ -1,4 +1,4 @@
-allpairspy==2.5.0
+allpairspy==2.5.1
 approval-utilities==8.3.1
 approvaltests==8.3.1
 attrs==23.1.0
