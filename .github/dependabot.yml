@@ -7,7 +7,7 @@ updates:
   schedule:
     interval: "daily"
   commit-message:
-    prefix: "R!!"
+    prefix: "R - "
 
 - package-ecosystem: nuget
   directory: "/"
@@ -15,7 +15,7 @@ updates:
     interval: daily
   open-pull-requests-limit: 10
   commit-message:
-    prefix: "R!!"
+    prefix: "R - "
 
 - package-ecosystem: github-actions
   directory: "/"
@@ -23,4 +23,4 @@ updates:
     interval: daily
   open-pull-requests-limit: 10
   commit-message:
-    prefix: "R!!"
+    prefix: "e - "
