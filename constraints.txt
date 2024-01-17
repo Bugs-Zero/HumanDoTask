@@ -2,7 +2,7 @@ allpairspy==2.5.1
 approval-utilities==10.2.0
 approvaltests==10.2.0
 attrs==23.2.0
-beautifulsoup4==4.12.2
+beautifulsoup4==4.12.3
 black==23.12.1
 certifi==2023.11.17
 charset-normalizer==3.3.2
