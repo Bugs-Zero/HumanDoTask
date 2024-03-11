@@ -1,5 +1,5 @@
 allpairspy==2.5.1
-approval-utilities==11.1.0
+approval-utilities==11.1.1
 approvaltests==11.1.0
 attrs==23.2.0
 beautifulsoup4==4.12.3
