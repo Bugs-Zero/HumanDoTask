@@ -13,7 +13,7 @@ exceptiongroup==1.2.1
 idna==3.7
 iniconfig==2.0.0
 mrjob==0.7.4
-mypy==1.9.0
+mypy==1.10.0
 mypy-extensions==1.0.0
 packaging==24.0
 pathspec==0.12.1
