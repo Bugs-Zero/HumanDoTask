@@ -1,3 +1,5 @@
+name: Update Python Dependencies
+
 on:
   schedule:
     # Runs at 05:00 UTC every Monday
@@ -32,7 +34,6 @@ jobs:
     - name: Commit updates
       run: |
         git commit -am "- r Update Python dependencies" || echo "No changes to commit"
-        git push
 
     - name: Create Pull Request
       run: |
