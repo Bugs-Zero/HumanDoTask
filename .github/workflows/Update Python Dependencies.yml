@@ -37,6 +37,6 @@ jobs:
 
     - name: Create Pull Request
       run: |
-        gh pr create -B main --fill
+        gh pr create -B main --fill --head ${{ github.head_ref }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
