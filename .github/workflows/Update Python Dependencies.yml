@@ -9,7 +9,6 @@ on:
 jobs:
   update-dependencies:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v4
     - run: git checkout -b update-dependencies-${{ github.run_id }}
@@ -18,16 +17,13 @@ jobs:
         git config --global user.name 'github-actions'
         git config --global user.email 'github-actions@github.com'
         git checkout -b update-python-dependencies-${{ github.run_id }}
-
     - uses: actions/setup-python@v5
       with:
         python-version: '3.11'
-    - run: pip install --upgrade --upgrade-strategy eager -c constraints.txt
-
+    - run: pip install --upgrade --upgrade-strategy eager --requirement requirements.txt --constraint constraints.txt
     - name: Commit updates
       run: |
         git commit -am "- r Update Python dependencies"
-
     - name: Create Pull Request
       run: |
         gh pr create -B main --fill
