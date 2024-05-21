@@ -1,0 +1,4 @@
+#! /bin/sh -eu
+
+python3 -m pip install tox --constraint constraints.txt --disable-pip-version-check
+python3 -m tox --parallel
