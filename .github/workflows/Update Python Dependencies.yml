@@ -20,7 +20,8 @@ jobs:
     - uses: actions/setup-python@v5
       with:
         python-version: '3.11'
-    - run: pip install --upgrade --upgrade-strategy eager --requirement requirements.txt --constraint constraints.txt
+    - run: pip install pip-tools
+    - run: pip-compile --upgrade --output-file=constraints.txt requirements.txt
     - name: Commit updates
       run: |
         git commit -am "- r Update Python dependencies"
