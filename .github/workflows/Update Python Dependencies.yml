@@ -28,6 +28,7 @@ jobs:
       run: |
         git checkout -b update-python-dependencies-${{ github.run_id }}
         git push -u origin update-python-dependencies-${{ github.run_id }}
-        gh pr create -B main --fill
+        gh pr create -B main --title "- r Update Python dependencies"
+        gh pr merge --squash --auto
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
