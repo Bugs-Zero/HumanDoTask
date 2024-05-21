@@ -56,7 +56,7 @@ pytest==8.2.1
     #   approvaltests
 pyyaml==6.0.1
     # via mrjob
-requests==2.32.1
+requests==2.32.2
     # via empty-files
 soupsieve==2.5
     # via beautifulsoup4
