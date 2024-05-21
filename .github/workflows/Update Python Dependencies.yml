@@ -16,7 +16,6 @@ jobs:
       run: |
         git config --global user.name 'github-actions'
         git config --global user.email 'github-actions@github.com'
-        git checkout -b update-python-dependencies-${{ github.run_id }}
     - uses: actions/setup-python@v5
       with:
         python-version: '3.11'
@@ -27,6 +26,8 @@ jobs:
         git commit -am "- r Update Python dependencies"
     - name: Create Pull Request
       run: |
+        git checkout -b update-python-dependencies-${{ github.run_id }}
+        git push -u origin update-python-dependencies-${{ github.run_id }}
         gh pr create -B main --fill
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
