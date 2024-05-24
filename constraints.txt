@@ -6,7 +6,7 @@
 #
 allpairspy==2.5.1
     # via approvaltests
-approval-utilities==12.1.0
+approval-utilities==12.2.0
     # via approvaltests
 approvaltests==12.1.0
     # via -r requirements.txt
