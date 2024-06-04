@@ -50,7 +50,7 @@ pluggy==1.5.0
     # via pytest
 pyperclip==1.8.2
     # via approvaltests
-pytest==8.2.1
+pytest==8.2.2
     # via
     #   -r requirements.txt
     #   approvaltests
