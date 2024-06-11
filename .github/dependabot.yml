@@ -12,7 +12,7 @@ updates:
     approvals:
         patterns:
           - approvaltests
-          - approvals-utilities
+          - approval-utilities
 
 
 - package-ecosystem: nuget
