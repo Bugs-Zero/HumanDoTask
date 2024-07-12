@@ -22,7 +22,7 @@ click==8.1.7
     # via black
 empty-files==0.0.9
     # via approvaltests
-exceptiongroup==1.2.1
+exceptiongroup==1.2.2
     # via pytest
 idna==3.7
     # via requests
