@@ -58,7 +58,7 @@ pyyaml==6.0.2
     # via mrjob
 requests==2.32.3
     # via empty-files
-soupsieve==2.5
+soupsieve==2.6
     # via beautifulsoup4
 testfixtures==8.3.0
     # via approvaltests
