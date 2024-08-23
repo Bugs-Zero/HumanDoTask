@@ -24,7 +24,7 @@ empty-files==0.0.9
     # via approvaltests
 exceptiongroup==1.2.2
     # via pytest
-idna==3.7
+idna==3.8
     # via requests
 iniconfig==2.0.0
     # via pytest
