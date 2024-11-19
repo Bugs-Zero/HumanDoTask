@@ -3,6 +3,7 @@ import textwrap
 import typing
 import approvaltests
 import approvaltests.approvals
+from approvaltests.core.options import Options
 import contextlib
 import io
 import sys
@@ -52,7 +53,7 @@ def test__verify_happy_path__run() -> None:
 
     approvaltests.approvals.verify(
         stdout.getvalue(),
-        options=approvaltests.Options().with_scrubber(_scrub_timestamp),
+        options=Options().with_scrubber(_scrub_timestamp),
     )
 
 
@@ -71,5 +72,5 @@ def test__verify_happy_path__verify() -> None:
 
     approvaltests.approvals.verify(
         stdout.getvalue(),
-        options=approvaltests.Options().with_scrubber(_scrub_timestamp),
+        options=Options().with_scrubber(_scrub_timestamp),
     )
