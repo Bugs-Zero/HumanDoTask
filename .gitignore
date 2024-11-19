@@ -1,5 +1,6 @@
-# Ignoring recieved files
+# ApprovalTests
 *.received.*
+.approval_tests_temp/
 
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
 
