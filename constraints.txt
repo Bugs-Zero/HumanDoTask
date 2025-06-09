@@ -6,9 +6,9 @@
 #
 allpairspy==2.5.1
     # via approvaltests
-approval-utilities==14.5.0
+approval-utilities==14.6.0
     # via approvaltests
-approvaltests==14.5.0
+approvaltests==14.6.0
     # via -r requirements.txt
 beautifulsoup4==4.13.4
     # via approvaltests
