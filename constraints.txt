@@ -12,7 +12,7 @@ approvaltests==15.3.2
     # via -r requirements.txt
 beautifulsoup4==4.13.5
     # via approvaltests
-black==25.1.0
+black==25.9.0
     # via -r requirements.txt
 certifi==2025.8.3
     # via requests
