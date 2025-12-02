@@ -10,7 +10,7 @@ approval-utilities==16.1.0
     # via approvaltests
 approvaltests==16.1.0
     # via -r requirements.txt
-beautifulsoup4==4.14.2
+beautifulsoup4==4.14.3
     # via approvaltests
 black==25.11.0
     # via -r requirements.txt
