@@ -11,7 +11,7 @@ uv_create_args = ["--seed", "--quiet"]
 build_and_test.depends = ["check_formatting", "test", "mypy"]
 
 [tasks.check_formatting]
-run = "python -m black --check ."
+run = "python -m ruff format --check ."
 depends = ["pip-install"]
 
 [tasks.test]
