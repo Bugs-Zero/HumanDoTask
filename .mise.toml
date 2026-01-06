@@ -1,0 +1,23 @@
+[tools]
+uv = "latest"
+
+[env.'_'.python.venv]
+path = ".venv"
+create = true
+uv_create_args = ["--seed", "--quiet"]
+
+[tasks]
+"pip-install" = "uv pip --no-cache install -r requirements.txt --quiet"
+build_and_test.depends = ["check_formatting", "test", "mypy"]
+
+[tasks.check_formatting]
+run = "python -m black --check ."
+depends = ["pip-install"]
+
+[tasks.test]
+run = "python -m pytest -v"
+depends = ["pip-install"]
+
+[tasks.mypy]
+run = "python -m mypy ."
+depends = ["pip-install"]

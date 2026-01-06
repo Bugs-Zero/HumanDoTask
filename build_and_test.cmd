@@ -1,1 +1,1 @@
-@call python -m pip install tox --disable-pip-version-check && call tox --parallel
+@"C:\Program Files\Git\bin\bash.exe" ./build_and_test
