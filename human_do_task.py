@@ -4,6 +4,8 @@ import datetime
 import traceback
 import typing
 
+from agent import agent as call_agent
+
 
 class Clock(object):
     started: typing.Optional[datetime.datetime]
@@ -51,9 +53,11 @@ class Process:
         self._automated = Clock()
         self._automated.start()
         self._manual = Clock()
+        self._agent = Clock()
         self._test_result: list[str] = []
         self._automated_steps = 0
         self._manual_steps = 0
+        self._agent_steps = 0
 
     class ManualSection:
         def __init__(self, go: Process) -> None:
@@ -61,6 +65,7 @@ class Process:
 
         def __enter__(self) -> None:
             self.go._automated.stop()
+            self.go._agent.stop()
             self.go._manual.start()
 
         def __exit__(
@@ -138,6 +143,17 @@ class Process:
 
         return impl
 
+    def agent(self, prompt: str, model: str = "sonnet") -> str:
+        self._agent_steps += 1
+        self._automated.stop()
+        self._agent.start()
+        try:
+            result = call_agent(prompt, model)
+        finally:
+            self._agent.stop()
+            self._automated.start()
+        return result
+
     def print_test_results(self) -> None:
         if self._test_result:
             print("Verification failed. Please fix the process and try again.")
@@ -146,9 +162,10 @@ class Process:
 
     def _print_stats(self) -> None:
         self._automated.stop()
-        total_time = self._automated.elapsed + self._manual.elapsed
+        total_time = self._automated.elapsed + self._manual.elapsed + self._agent.elapsed
         print(f"Process complete in {total_time}.")
         print(
             f"   Automated: {self._automated_steps} steps in {self._automated.elapsed}."
         )
         print(f"   Manual: {self._manual_steps} steps in {self._manual.elapsed}.")
+        print(f"   Agent: {self._agent_steps} steps in {self._agent.elapsed}.")
