@@ -2,8 +2,10 @@
 name: Test
 
 on:
-  - push
-  - pull_request
+  push:
+  pull_request:
+  schedule:
+    - cron: "37 9 * * 3"
 
 jobs:
   build:
