@@ -9,9 +9,14 @@ uv_create_args = ["--seed", "--quiet"]
 [tasks]
 "pip-install" = "uv pip --no-cache install -r requirements.txt --quiet"
 build_and_test.depends = ["check_formatting", "test", "mypy"]
+tidy_code.depends = ["format"]
 
 [tasks.check_formatting]
 run = "python -m ruff format --check ."
+depends = ["pip-install"]
+
+[tasks.format]
+run = "python -m ruff format ."
 depends = ["pip-install"]
 
 [tasks.test]
